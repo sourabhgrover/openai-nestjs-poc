@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ChatgptService } from './chatgpt.service';
 import { CreateChatgptDto } from './dto/create-chatgpt.dto';
 import { UpdateChatgptDto } from './dto/update-chatgpt.dto';
+import { Chatgpt } from './entities/chatgpt.entity';
 
 @Controller('chatgpt')
 export class ChatgptController {
@@ -10,6 +11,11 @@ export class ChatgptController {
   @Post()
   create(@Body() createChatgptDto: CreateChatgptDto) {
     return this.chatgptService.create(createChatgptDto);
+  }
+
+  @Post("askQuestion")
+  openai(@Body() Chatgpt: Chatgpt) {
+    return this.chatgptService.askQuestion(Chatgpt);
   }
 
   @Get()
