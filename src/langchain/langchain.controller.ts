@@ -37,6 +37,8 @@ export class LangchainController {
   async splitter() {
     const result = await fetch('http://localhost:3000/scrimba-info.txt')
     const text = await result.text();
+    // const splitter = new RecursiveCharacterTextSplitter()
+    // OVERRIDE Default  Settings
     const splitter = new RecursiveCharacterTextSplitter({
       chunkSize: 500,
       chunkOverlap: 50,
