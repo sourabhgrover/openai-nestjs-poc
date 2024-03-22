@@ -10,7 +10,8 @@ export class ChatgptService {
   private openai: OpenAI;
   constructor() {
     this.openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
+      // apiKey: process.env.OPENAI_API_KEY,
+      apiKey: "process.env.OPENAI_API_KEY",
     });
   }
   create(createChatgptDto: CreateChatgptDto) {
